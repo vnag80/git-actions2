@@ -1,0 +1,16 @@
+name: test-project
+run:  push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Get node
+        uses: actions/setup-mode
+        with:
+          node_version: 18
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Tests
+        run: npm test
